@@ -1,0 +1,253 @@
+/* src/components/Footer/Footer.css */
+
+/* 1. Base Variables & Reset */
+:root {
+  --navy-bg: #00044a;
+  --gold-primary: #d1a309;
+  --gold-hover: #f0c040;
+  --text-dim: rgba(255, 255, 255, 0.7);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+.footer-section {
+  background-color: var(--navy-bg);
+  padding: 80px 0 0; 
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.footer-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 1.4fr; 
+  gap: 50px;
+ 
+  align-items: start; 
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* 3. Column Styling */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand Logo Styling */
+.footer-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.brand-desc, .newsletter-text {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.footer-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 35px; 
+  position: relative;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 45px;
+  height: 2px;
+  background-color: var(--gold-primary);
+}
+
+/* 5. Links & Lists */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold-primary);
+  transform: translateX(5px); 
+}
+
+/* 6. Newsletter / Subscribe Form */
+.subscribe-box {
+  display: flex;
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s;
+}
+
+.subscribe-box:focus-within {
+  border-color: var(--gold-primary);
+}
+
+.subscribe-box input {
+  background: transparent;
+  border: none;
+  padding: 12px 15px;
+  color: #fff;
+  flex: 1;
+  outline: none;
+  font-size: 14px;
+}
+
+.subscribe-box input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.subscribe-box button {
+  background: var(--gold-primary);
+  border: none;
+  color: var(--navy-bg);
+  padding: 0 22px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.subscribe-box button:hover {
+  background: var(--gold-hover);
+}
+
+/* 7. Footer Bottom Bar */
+.footer-bottom {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom span, 
+.footer-bottom a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* 8. Social Icons in Bottom Bar (Reference Style) */
+.social-circles {
+  display: flex;
+  gap: 15px;
+}
+
+.social-circles a {
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-circles a:hover {
+  background: var(--gold-primary);
+  border-color: var(--gold-primary);
+  color: var(--navy-bg);
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE DESIGN (FOR ALL DEVICES)
+   ══════════════════════════════════ */
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+  }
+  .footer-container {
+    padding: 0 30px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .social-circles {
+    order: -1; 
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-section {
+    padding-top: 60px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr; 
+    text-align: center;
+    gap: 45px;
+  }
+
+  .footer-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-logo {
+    margin: 0 auto 20px;
+  }
+  .subscribe-box {
+    flex-direction: column;
+    background: transparent;
+    border: none;
+  }
+  .subscribe-box input {
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 10px;
+    border-radius: 4px;
+    width: 100%;
+  }
+  .subscribe-box button {
+    padding: 15px;
+    border-radius: 4px;
+  }
+}

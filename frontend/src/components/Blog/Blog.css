@@ -1,0 +1,255 @@
+/* src/components/Blog/BlogSection.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gold: #d1a309;
+  --dark-navy: #00044a;  
+  --navy-light: #00066d;
+  --text-gray: #666666;
+  --white: #ffffff;
+  --section-bg: #f8f9fa; 
+}
+
+.blog-section {
+  width: 100%;
+  padding: 80px 0;
+ 
+  background-color: var(--white); 
+  font-family: 'Poppins', sans-serif;
+}
+
+.container-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Heading Left Alignment */
+.blog-header-left {
+  text-align: left;
+  margin-bottom: 50px;
+}
+
+.blog-main-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark-navy); /* Navy Blue Heading */
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-gold); /* Gold Underline */
+  margin-top: 5px;
+}
+
+/* Blog Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+/* Blog Card */
+.blog-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid #eee;
+}
+
+.blog-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 35px rgba(0, 4, 74, 0.15);
+  border-color: var(--primary-gold);
+}
+
+.blog-img-container {
+  position: relative;
+  height: 270px;
+  overflow: hidden;
+}
+
+.blog-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.blog-card:hover .blog-img-container img {
+  transform: scale(1.1);
+}
+
+/* Badges - Navy & Gold Combo */
+.blog-badges {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.blog-badge {
+  background-color: var(--dark-navy); 
+  color: var(--primary-gold); 
+  padding: 5px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 4px;
+  border: 1px solid var(--primary-gold); 
+}
+
+/* Content Area */
+.blog-content {
+  padding: 25px 20px;
+  text-align: left;
+}
+
+.blog-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--dark-navy);
+  margin-bottom: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.blog-title:hover {
+  color: var(--primary-gold); 
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 15px;
+}
+
+.blog-author {
+  font-size: 13px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.blog-date {
+  font-size: 12px;
+  color: #bbb;
+}
+
+/* ══════════════════════════════════════════
+   1. LARGE DEVICES (Desktop & 4K)
+   ══════════════════════════════════════════ */
+@media (min-width: 1400px) {
+    .container-wrapper {
+        max-width: 1400px;
+        padding: 0 60px;
+    }
+}
+
+/* ══════════════════════════════════════════
+   2. TABLETS & SMALL LAPTOPS (≤ 991px)
+   ══════════════════════════════════════════ */
+@media (max-width: 991px) {
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .blog-main-title {
+        font-size: 28px;
+    }
+
+    .blog-img-container {
+        height: 230px;
+    }
+}
+
+/* ══════════════════════════════════════════
+   3. SMALL TABLETS / LARGE PHONES (≤ 768px)
+   ══════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 60px 0;
+    }
+
+    .blog-header-left {
+        text-align: center; 
+        margin-bottom: 40px;
+    }
+
+    .title-underline {
+        margin: 5px auto 0; 
+    }
+
+    .blog-grid {
+        gap: 20px;
+    }
+
+    .blog-card:hover {
+        transform: translateY(-5px); 
+    }
+}
+
+/* ══════════════════════════════════════════
+   4. PHONES (≤ 567px)
+   ══════════════════════════════════════════ */
+@media (max-width: 567px) {
+    .blog-grid {
+        grid-template-columns: 1fr; 
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .blog-main-title {
+        font-size: 24px;
+    }
+
+    .blog-img-container {
+        height: 250px; 
+    }
+}
+
+/* ══════════════════════════════════════════
+   5. MEDIUM PHONES (≤ 480px)
+   ══════════════════════════════════════════ */
+@media (max-width: 480px) {
+    .container-wrapper {
+        padding: 0 20px;
+    }
+
+    .blog-title {
+        font-size: 17px;
+    }
+
+    .blog-content {
+        padding: 20px 15px;
+    }
+}
+
+/* ══════════════════════════════════════════
+   6. ULTRA SMALL PHONES (≤ 350px)
+   ══════════════════════════════════════════ */
+@media (max-width: 350px) {
+    .blog-main-title {
+        font-size: 21px;
+    }
+
+    .blog-img-container {
+        height: 200px;
+    }
+
+    .blog-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

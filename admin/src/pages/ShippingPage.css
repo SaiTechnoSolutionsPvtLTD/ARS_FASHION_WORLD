@@ -1,0 +1,385 @@
+/* FILE PATH: ars-admin/src/pages/ShippingPage.css */
+
+/* ─── Page shell ─── */
+.sp-page {
+  padding: 32px 28px;
+  max-width: 860px;
+  font-family: 'Inter', 'DM Sans', system-ui, sans-serif;
+}
+
+/* ─── Page header ─── */
+.sp-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.sp-page-title {
+  font-size: 20px;
+  font-weight: 650;
+  color: #111827;
+  margin: 0 0 4px;
+  letter-spacing: -0.3px;
+}
+
+.sp-page-desc {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Stats pill ─── */
+.sp-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 20px;
+  flex-shrink: 0;
+}
+
+.sp-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.sp-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.sp-stat-label {
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sp-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: #e5e7eb;
+}
+
+/* ─── Form card ─── */
+.sp-form-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+
+.sp-form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0 0 16px;
+}
+
+.sp-form-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.sp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.sp-field--sm {
+  flex: 0 0 160px;
+  min-width: 120px;
+}
+
+.sp-field-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.sp-select,
+.sp-input {
+  height: 38px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sp-select:focus,
+.sp-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.sp-select:disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.sp-form-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-shrink: 0;
+  padding-bottom: 1px;
+}
+
+/* ─── Buttons ─── */
+.sp-btn {
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, opacity 0.15s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sp-btn--primary {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+.sp-btn--primary:hover:not(:disabled) {
+  background: #1f2937;
+}
+.sp-btn--primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sp-btn--ghost {
+  background: transparent;
+  color: #374151;
+  border-color: #d1d5db;
+}
+.sp-btn--ghost:hover {
+  background: #f3f4f6;
+}
+
+.sp-btn--danger {
+  background: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+.sp-btn--danger:hover {
+  background: #ffe4e6;
+}
+
+.sp-btn--del-trigger {
+  color: #ef4444;
+}
+.sp-btn--del-trigger:hover {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #be123c;
+}
+
+/* ─── Table wrapper ─── */
+.sp-table-wrap {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ─── Empty / Loading states ─── */
+.sp-state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 56px 24px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.sp-empty-icon {
+  font-size: 28px;
+  opacity: 0.4;
+}
+
+.sp-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: sp-spin 0.7s linear infinite;
+}
+
+@keyframes sp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Table ─── */
+.sp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sp-th {
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
+}
+
+.sp-th--idx {
+  width: 48px;
+  color: #d1d5db;
+}
+
+.sp-th--right {
+  text-align: right;
+}
+
+.sp-tr {
+  transition: background 0.1s;
+}
+
+.sp-tr:hover .sp-td {
+  background: #fafafa;
+}
+
+.sp-td {
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.sp-tr:last-child .sp-td {
+  border-bottom: none;
+}
+
+.sp-td--idx {
+  color: #d1d5db;
+  font-size: 13px;
+  width: 48px;
+}
+
+.sp-td--name {
+  font-weight: 500;
+  color: #111827;
+}
+
+/* ─── Badges & amounts ─── */
+.sp-badge {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 2px 9px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sp-badge--free {
+  background: #f0fdf4;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.sp-amount {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ─── Action cells ─── */
+.sp-td--actions {
+  text-align: right;
+}
+
+.sp-action-row,
+.sp-confirm-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.sp-confirm-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-right: 4px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  .sp-page {
+    padding: 20px 16px;
+  }
+
+  .sp-page-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sp-stats-row {
+    align-self: flex-start;
+  }
+
+  .sp-form-row {
+    flex-direction: column;
+  }
+
+  .sp-field,
+  .sp-field--sm {
+    flex: none;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .sp-form-actions {
+    width: 100%;
+  }
+
+  .sp-btn--primary {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .sp-th:nth-child(4),
+  .sp-td:nth-child(4) {
+    display: none;
+  }
+}

@@ -1,0 +1,304 @@
+/* Register.css — ARS Fashion World */
+
+.reg-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,31,63,0.85), rgba(0,31,63,0.85)),
+    /* url("public/assets/hero-model.png") no-repeat center center fixed; */
+  /* background-size: cover;
+  padding: 100px 20px 40px;
+  box-sizing: border-box; */
+}
+
+.reg-glass-box {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(0,31,63,0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(209,163,9,0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: slideInUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both;
+}
+
+.reg-wide { max-width: 540px; }
+
+/* Step Indicator */
+.reg-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.reg-step {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.4);
+  font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+}
+
+.reg-step.active {
+  background: #d1a309;
+  border-color: #d1a309;
+  color: #001f3f;
+}
+
+.reg-step-line {
+  width: 60px; height: 2px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Inputs */
+.reg-input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.reg-input:focus {
+  border-color: #d1a309;
+  background: rgba(255,255,255,0.15);
+}
+
+.reg-input::placeholder { color: rgba(255,255,255,0.45); }
+
+.reg-select option { background: #001f3f; color: #fff; }
+
+/* Row */
+.reg-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Password strength */
+.reg-password-wrap { position: relative; }
+
+.reg-pwd-strength {
+  font-size: 11px;
+  margin-top: -10px;
+  margin-bottom: 14px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.reg-pwd-strength.strong { color: #5cb88e; background: rgba(92,184,142,0.12); }
+.reg-pwd-strength.weak   { color: #e05c5c; background: rgba(224,92,92,0.1); }
+
+/* Error & Info */
+.reg-error {
+  background: rgba(224,92,92,0.15);
+  border: 1px solid rgba(224,92,92,0.3);
+  color: #ff8a8a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.reg-info-msg {
+  background: rgba(209,163,9,0.15);
+  border: 1px solid rgba(209,163,9,0.3);
+  color: #f0c84a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.reg-addr-hint {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  margin-bottom: 16px;
+}
+
+/* Buttons */
+.reg-btn {
+  width: 100%;
+  padding: 14px;
+  background: #d1a309;
+  color: #001f3f;
+  border: none;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  margin-top: 6px;
+}
+
+.reg-btn:hover:not(:disabled) {
+  background: #fff;
+  color: #d1a309;
+  letter-spacing: 2px;
+}
+
+.reg-btn:disabled { opacity: 0.6; cursor: wait; }
+
+.reg-btn-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.reg-btn-back {
+  padding: 14px 20px;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.reg-btn-back:hover { border-color: #d1a309; color: #d1a309; }
+
+/* Title */
+.reg-title {
+  color: #d1a309;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.reg-subtitle {
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 13.5px;
+}
+
+.reg-footer-text {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+}
+
+.reg-link { color: #d1a309; text-decoration: none; font-weight: bold; }
+.reg-link:hover { text-decoration: underline; }
+
+@keyframes slideInUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .reg-bg { padding-top: 110px; }
+  .reg-row { grid-template-columns: 1fr; }
+  .reg-btn-row { grid-template-columns: 1fr; }
+}
+
+/* ── OTP Step ── */
+.reg-otp-info {
+  background: rgba(209,163,9,0.12);
+  border: 1px solid rgba(209,163,9,0.35);
+  color: #f0c84a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  margin-bottom: 22px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.reg-otp-boxes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.reg-otp-box {
+  width: 46px;
+  height: 54px;
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s;
+  caret-color: #d1a309;
+}
+
+.reg-otp-box:focus {
+  border-color: #d1a309;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 0 3px rgba(209,163,9,0.2);
+}
+
+.reg-otp-box.filled {
+  border-color: #d1a309;
+  background: rgba(209,163,9,0.15);
+}
+
+/* Resend row */
+.reg-resend-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.reg-resend-timer {
+  color: rgba(255,255,255,0.45);
+}
+
+.reg-resend-btn {
+  background: none;
+  border: none;
+  color: #d1a309;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+  text-decoration: underline;
+}
+.reg-resend-btn:hover { color: #fff; }
+.reg-resend-btn:disabled { opacity: 0.4; cursor: default; }
+
+.reg-back-link {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+}
+.reg-back-link:hover { color: #fff; }

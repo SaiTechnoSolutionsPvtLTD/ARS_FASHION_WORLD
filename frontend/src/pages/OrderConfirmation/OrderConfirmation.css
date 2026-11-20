@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy:      #00044a;
+  --gold:      #d1a309;
+  --white:     #ffffff;
+  --bg-light:  #f5f5fb;
+  --navy-10:   #e8e9f5;
+  --gold-10:   #fdf3d0;
+  --gold-dark: #a07e07;
+  --muted:     #7a7a9a;
+  --border:    #dde0f0;
+}
+
+/* ── Wrapper ── */
+.oc-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef0fb 0%, #fdf8e8 60%, #eef0fb 100%);
+  padding: 32px 16px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background Orbs ── */
+.oc-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.oc-orb-1 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(0,4,74,0.12), transparent 70%); top: -120px; left: -120px; }
+.oc-orb-2 { width: 220px; height: 220px; background: radial-gradient(circle, rgba(209,163,9,0.12), transparent 70%); bottom: -70px; right: -70px; }
+.oc-orb-3 { width: 140px; height: 140px; background: radial-gradient(circle, rgba(0,4,74,0.08), transparent 70%); bottom: 100px; left: 60px; }
+
+/* ── Confetti Dots ── */
+.oc-dot {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: oc-fall linear infinite;
+}
+@keyframes oc-fall {
+  0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0.7; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ── Card ── */
+.oc-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 48px 40px 40px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  border: 1.5px solid var(--border);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 40px rgba(0,4,74,0.10), 0 2px 8px rgba(209,163,9,0.08);
+  opacity: 0;
+  transform: translateY(32px) scale(0.96);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+              transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.oc-card.oc-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Animated gradient top bar */
+.oc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--navy), var(--gold), #c084fc, var(--gold), var(--navy));
+  background-size: 300%;
+  border-radius: 24px 24px 0 0;
+  animation: oc-shimmer 4s ease infinite;
+}
+@keyframes oc-shimmer {
+  0%   { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* ── Icon Ring ── */
+.oc-icon-ring {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-10), #d4d6f0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  position: relative;
+}
+/* Outer dashed gold ring */
+.oc-icon-ring::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2.5px dashed var(--gold);
+  opacity: 0.6;
+  animation: oc-spin 10s linear infinite;
+}
+/* Faint outer ring */
+.oc-icon-ring::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px dashed #b0b4e0;
+  opacity: 0.35;
+  animation: oc-spin 20s linear infinite reverse;
+}
+@keyframes oc-spin { to { transform: rotate(360deg); } }
+
+.oc-check-svg { width: 68px; height: 68px; }
+.oc-circle {
+  stroke: var(--navy);
+  stroke-width: 2;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  animation: oc-drawCircle 0.7s ease forwards 0.3s;
+}
+.oc-tick {
+  stroke: var(--gold);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: oc-drawTick 0.4s ease forwards 1s;
+}
+@keyframes oc-drawCircle { to { stroke-dashoffset: 0; } }
+@keyframes oc-drawTick   { to { stroke-dashoffset: 0; } }
+
+/* ── Badge ── */
+.oc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, var(--navy) 0%, #1a1f7a 100%);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 20px;
+  border: none;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 12px rgba(0,4,74,0.20);
+  animation: oc-fadeUp 0.5s ease forwards 0.4s;
+  opacity: 0;
+}
+.oc-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: inline-block;
+  animation: oc-pulse 1.5s ease infinite;
+}
+@keyframes oc-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.6); }
+}
+
+/* ── Text ── */
+.oc-greeting {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0 0 6px;
+  animation: oc-fadeUp 0.5s ease forwards 0.5s;
+  opacity: 0;
+}
+.oc-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 27px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 0 0 12px;
+  line-height: 1.25;
+  animation: oc-fadeUp 0.5s ease forwards 0.6s;
+  opacity: 0;
+}
+.oc-headline span {
+  background: linear-gradient(90deg, var(--gold), #f0c800, var(--gold));
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: oc-shimmer 3s ease infinite;
+}
+.oc-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 24px;
+  line-height: 1.75;
+  animation: oc-fadeUp 0.5s ease forwards 0.7s;
+  opacity: 0;
+}
+@keyframes oc-fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Info Boxes ── */
+.oc-order-id-box,
+.oc-amount-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin-bottom: 9px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: oc-fadeUp 0.5s ease forwards 0.8s;
+  opacity: 0;
+}
+.oc-order-id-box:hover,
+.oc-amount-box:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 16px rgba(0,4,74,0.08);
+}
+.oc-order-id-box {
+  background: linear-gradient(135deg, #eef0fb, #e0e3f8);
+  border: 1px solid #c8cced;
+  border-left: 4px solid var(--navy);
+}
+.oc-amount-box {
+  background: linear-gradient(135deg, #fdf8e4, #faefc0);
+  border: 1px solid #e8d87a;
+  border-left: 4px solid var(--gold);
+  animation-delay: 0.85s;
+}
+.oc-order-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.oc-order-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.oc-amount-box .oc-order-value { color: var(--gold-dark); }
+
+/* Order ID # prefix pill */
+.oc-order-id-prefix {
+  font-size: 11px;
+  background: var(--navy);
+  color: var(--gold);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-right: 6px;
+}
+
+/* ── Divider ── */
+.oc-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 20px;
+  animation: oc-fadeUp 0.5s ease forwards 0.9s;
+  opacity: 0;
+}
+.oc-divider::before,
+.oc-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.oc-divider span {
+  font-size: 10.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Buttons ── */
+.oc-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: oc-fadeUp 0.5s ease forwards 0.95s;
+  opacity: 0;
+}
+.oc-btn-primary {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a1f7a 100%);
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(0,4,74,0.22);
+}
+.oc-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(209,163,9,0.18) 100%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.oc-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,4,74,0.28);
+}
+.oc-btn-primary:hover::before { opacity: 1; }
+.oc-btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 16px rgba(0,4,74,0.22);
+}
+
+.oc-btn-secondary {
+  background: var(--white);
+  color: var(--muted);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.15s;
+}
+.oc-btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold-dark);
+  background: var(--gold-10);
+  transform: translateY(-1px);
+}
+
+/* ── Trust Strip ── */
+.oc-trust {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+  animation: oc-fadeUp 0.5s ease forwards 1.05s;
+  opacity: 0;
+}
+.oc-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+}
+.oc-trust-icon {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+.oc-trust-icon.green { background: #e8f5e9; color: #2e7d32; }
+.oc-trust-icon.blue  { background: #e3f0fc; color: #1565c0; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .oc-card { padding: 36px 20px 30px; }
+  .oc-headline { font-size: 23px; }
+  .oc-trust { flex-wrap: wrap; gap: 12px; }
+}

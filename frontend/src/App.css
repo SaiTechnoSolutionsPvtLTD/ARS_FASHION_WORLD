@@ -1,0 +1,24 @@
+
+:root {
+  --primary-navy: #00044a;
+  --gold: #d1a309;
+  --text-white: #ffffff;
+  --gray: #b3b3b3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+  color: var(--text-white);
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

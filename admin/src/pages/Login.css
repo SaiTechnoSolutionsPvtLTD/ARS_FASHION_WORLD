@@ -1,0 +1,123 @@
+/* Login.css */
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000233; /* Deep Dark Background */
+    font-family: 'Inter', sans-serif;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    background: #00044a; /* Card Background */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(209, 163, 9, 0.2); /* Gold Border subtle */
+    text-align: center;
+}
+
+.ars-logo {
+    width: 70px;
+    height: 70px;
+    background: #d1a309; /* Gold */
+    color: #000;
+    font-weight: 900;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 20px rgba(209, 163, 9, 0.3);
+}
+
+.login-branding h2 {
+    color: #ffffff;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.login-branding p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.error-alert {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-field .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #d1a309;
+    font-size: 20px;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    background: #000d6b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.input-field input:focus {
+    border-color: #d1a309;
+    background: #00044a;
+    box-shadow: 0 0 0 4px rgba(209, 163, 9, 0.1);
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #d1a309;
+    color: #000;
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-submit-btn:hover {
+    background: #d1a309;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
